@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picturez Landing</title>
+    <meta name="description" content="Welcome to Picturez - Enjoy our latest movie project!">
+    <meta name="author" content="Picturez Studio">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Orbitron', sans-serif;
+            background: url('https://images.unsplash.com/photo-1581090700227-1e8eaf0c3263?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 50, 0.6);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0088cc;
+        }
+
+        a.movie-link {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a.movie-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="page1" class="section active">
+            <h1>Welcome to Picturez</h1>
+            <button class="btn" onclick="goToPage(2)">Click Here</button>
+        </section>
+
+        <section id="page2" class="section">
+            <h1>Tap Continue to Watch the Movie</h1>
+            <button class="btn" onclick="goToPage(3)">Continue</button>
+        </section>
+
+        <section id="page3" class="section">
+            <h1>Enjoy the Show!</h1>
+            <p><a class="movie-link" href="https://youtu.be/hHw3e28F9j4?si=ZPUO_QUyCs84mnzt" target="_blank">Watch the Movie</a></p>
+        </section>
+    </main>
+
+    <script>
+        function goToPage(pageNumber) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+</body>
+</html>
